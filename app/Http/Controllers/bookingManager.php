@@ -11,7 +11,8 @@ use Illuminate\Support\Carbon;
 
 class bookingManager extends Controller
 {
-    public function bookroom(Request $request, $room_id){
+    public function bookroom(Request $request, $room_id)
+    {
         $room = Rooms::find($room_id);
         $user = Auth::user();
 
@@ -24,24 +25,24 @@ class bookingManager extends Controller
         if (!$room) {
             return redirect()->route('room.index')->with('error', 'Room not found');
         }
-    
+
         $checkInDate = Carbon::parse($request->check_in);
         $checkOutDate = Carbon::parse($request->check_out);
-    
+
         $overlappingBookings = bookedRooms::where('roomid', $room->id)
             ->where(function ($query) use ($checkInDate, $checkOutDate) {
                 $query->whereBetween('check_in', [$checkInDate, $checkOutDate])
                     ->orWhereBetween('check_out', [$checkInDate, $checkOutDate]);
             })
             ->first();
-    
+
         if ($overlappingBookings) {
             return redirect()->back()->with('error', 'Room is already booked for the selected dates');
         }
-        
+
         $numOfBookedDays = $checkOutDate->diffInDays($checkInDate) + 1;
-        
-        if($numOfBookedDays > $room->max_stay) {
+
+        if ($numOfBookedDays > $room->max_stay) {
             return redirect()->back()->with('error', 'selected dates exceeds the Maximum Stay');
         }
 
@@ -55,6 +56,7 @@ class bookingManager extends Controller
         $data['check_out'] = $request->check_out;
         $data['rent_amt'] = $request->rent_amt;
         $data['status'] = 'booked';
+        $data['image'] = $room->images[0];
         $booking = bookedRooms::create($data);
 
         if (!$booking) {
@@ -69,7 +71,14 @@ class bookingManager extends Controller
         $user = Auth::user();
         $rooms = bookedRooms::where('email', $user->email)->get();
 
-        return view('customer.myrooms', compact('rooms'));
+        $roomImages = [];
+        // Loop through the booked rooms and fetch their images
+        foreach ($rooms as $bookedRoom) {
+            $room = Rooms::find($bookedRoom->roomid);
+            $roomImages[$bookedRoom->roomid] = $room->images;
+        }
+
+        return view('customer.myrooms', compact('rooms', 'roomImages'));
     }
 
 

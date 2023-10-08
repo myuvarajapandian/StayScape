@@ -30,42 +30,32 @@
     </div>
 
     <div class="container mt-5">
-        <div class="card shadow">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="mt-4">
-                            <div class="profile-info">
-                                <h1>
-                                    <i class="fas fa-user"></i> {{ $user->name }}
-                                </h1>
-                                <p class="mt-3">
-                                    <strong><i class="fas fa-envelope"></i> Email:</strong> {{ $user->email }}
-                                </p>
-                                <p class="mt-1">
-                                    <strong><i class="fas fa-user-tag"></i> Role:</strong> {{ $user->user_role }}
-                                </p>
-                                <p class="mt-1">
-                                    <strong><i class="fas fa-phone"></i> Phone:</strong> {{ $user->phone }}
-                                </p>
-                            </div>
+        <div class="row justify-content-center"> <!-- Center the card horizontally -->
+            <div class="col-md-8">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <div class="text-center">
+                            <img src="{{ Storage::url('public/photos/user-png.png') }}" alt="Default User Image" class="img-fluid rounded-circle profile-image" style="width: 100px;">
+                            <h1 class="profile-name mt-3">{{ $user->name }}</h1>
+                            <p class="profile-email"><i class="fas fa-envelope"></i> {{ $user->email }}</p>
+                            <p class="profile-phone"><i class="fas fa-phone"></i> +91 {{ $user->phone }}</p>
                         </div>
-                        <div class="mt-4">
-                            <div class="profile-about">
-                                <h4><i class="fas fa-info-circle"></i> About Me:</h4>
-                                <p>{{ $user->about }}</p>
-                            </div>
+                        <hr>
+                        <div class="mt-2">
+                            <h5><i class="bi bi-file-person-fill"></i><strong> About</strong></h5>
+                            <p class="profile-about"> {{ $user->about }}</p>
                         </div>
-                    </div>
-                    <hr>
-                    <div class="mt-2">
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit Profile</button>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#removeAccountModal">Remove Account</button>
+                        <hr>
+                        <div class="mt-2">
+                            <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#editProfileModal"><i class="bi bi-pencil-square"></i> Edit Profile</button>
+                            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#removeAccountModal"><i class="bi bi-trash-fill"></i> Remove Account</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 
     <div class="modal fade" id="editProfileModal" tabindex="-1" role="dialog" aria-labelledby="editProfileModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">

@@ -37,7 +37,7 @@
 
     <div class="container">
         <div class="col-md-12">
-            <h3 class="mt-5 mb-3">Available Rooms</h3>
+            <h3 class="mt-5 mb-3"><i class="bi bi-house-check-fill"></i> Available Rooms</h3>
             <div class="row">
                 @php
                 $roomsDisplayed = false;
@@ -53,30 +53,30 @@
                             <img src="{{ Storage::url('public/photos/' . $room->images[0]) }}" alt="Room Image" class="card-img-top">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $room->room_name }}</h5>
-                                <h6 class="card-text">{{ $room->location }}</h6>
+                                <h6 class="card-text" style="color: #84888A;"><i class="bi bi-geo-alt-fill"></i> {{ $room->location }}</h6>
                                 <p class="card-text">
                                     @for ($i = 0; $i < 3 && $i < count($room->amenities); $i++)
-                                        <span class="badge text-bg-secondary">{{ $room->amenities[$i] }}</span>
+                                        <span>{{ $room->amenities[$i] }}</span>
                                         @endfor
                                 </p>
                                 <p class="card-text">
                                     Availability:
                                     @if ($room->booking == 'Not Booked')
-                                    <span class="badge text-bg-success">Available</span>
+                                    <span class="badge bg-success">Available</span>
                                     @else
-                                    <span class="badge text-bg-danger">Not Available</span>
+                                    <span class="badge bg-danger">Not Available</span>
                                     @endif
                                 </p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <strong class="card-text">
-                                        <span style="color: #EE2A24; font-size: 1.25rem;">Rs. {{ $room->rent }}</span> / Day
+                                        <span style="color: #EE2A24; font-size: 1.25rem;"><i class="bi bi-currency-rupee"></i>{{ $room->rent }}</span> / Night
                                     </strong>
-                                    <a href="{{ route('view.room', $room->id) }}" class="btn btn-primary">Book</a>
                                 </div>
                             </div>
                         </div>
                     </a>
                 </div>
+
                 @endif
                 @endforeach
             </div>

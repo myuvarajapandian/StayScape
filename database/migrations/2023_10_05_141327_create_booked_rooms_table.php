@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('check_out');
             $table->integer('rent_amt');
             $table->string('status');
+            $table->string('image');
             $table->timestamps();
         });
     }

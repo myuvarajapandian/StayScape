@@ -92,7 +92,7 @@
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
-                        <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#imageModal">Update</button>
+                        <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#imageModal"><i class="bi bi-folder-plus"></i> Upload images</button>
                     </div>
                 </div>
             </div>
@@ -102,6 +102,21 @@
                     Booking Details
                 </div>
                 <div class="card-body">
+                    @php
+                    $roomsDisplayed = false;
+                    @endphp
+                    @foreach ($bookings as $booking)
+                    @php
+                    $roomsDisplayed = true;
+                    @endphp
+                    @endforeach
+                    @if (!$roomsDisplayed)
+                    <div class="container" style=" display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                        <div class="text-center">
+                            <p style="font-size: 24px; color: #84888A;"><strong>Sorry, no rooms are booked.</p>
+                        </div>
+                    </div>
+                    @else
                     <table class="table table-bordered">
                         <thead>
                             <tr>
@@ -122,6 +137,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    @endif
                 </div>
             </div>
             <hr class="my-4">
@@ -130,13 +146,13 @@
                     <div class="card-body">
                         <h4><i class="fa-solid fa-pen-to-square"></i> Edit</h4>
                         <hr class="my-4">
-                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editform">Update</button>
-                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editform"><i class="bi bi-pencil-fill"></i> Update</button>
+                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="bi bi-trash-fill"></i> Delete</button>
 
                         @if($rooms->booking == 'Booked')
-                        <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#availableModal">Available</button>
+                        <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#availableModal"><i class="bi bi-eye-fill"></i> Available</button>
                         @else
-                        <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#availableModal">Hide</button>
+                        <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#availableModal"><i class="bi bi-eye-slash-fill"></i> Hide</button>
                         @endif
                     </div>
                 </div>

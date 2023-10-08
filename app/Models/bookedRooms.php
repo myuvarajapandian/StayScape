@@ -21,5 +21,6 @@ class bookedRooms extends Model
         'check_out',
         'rent_amt',
         'status',
+        'image',
     ];
 }
