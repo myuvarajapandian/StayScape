@@ -1,0 +1,10 @@
+.card-img-container {
+    max-width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.card-img {
+    width: 100%;
+    height: auto;
+}
