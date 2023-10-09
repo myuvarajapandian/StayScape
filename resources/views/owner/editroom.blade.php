@@ -2,6 +2,9 @@
 @section('content')
 @section('title', 'Welcome' )
 @include('includes.header')
+
+    <!-- Owner Edit room page (owner can control all)  -->
+
 <div class="container mb-2">
     <div class="row">
         <div class="col-md-12 p-1" style="background-color: #F8F9FA;">
@@ -28,6 +31,8 @@
             @endif
         </div>
     </div>
+
+    <!-- Room details page -->
 
     <div class="row">
         <div class="col-lg-7">
@@ -68,6 +73,8 @@
             </div>
         </div>
 
+        <!-- image view carousel -->
+
         <div class="col-lg-5">
             <div class="container mt-4 mb-2">
                 <div class="card shadow">
@@ -96,7 +103,11 @@
                     </div>
                 </div>
             </div>
+
             <hr class="my-4">
+
+            <!-- Booking details content -->
+
             <div class="card shadow">
                 <div class="card-header">
                     Booking Details
@@ -140,7 +151,11 @@
                     @endif
                 </div>
             </div>
+
             <hr class="my-4">
+
+            <!-- Edit buttons -->
+
             <div class="mt-2 mb-2">
                 <div class="card shadow">
                     <div class="card-body">
@@ -160,6 +175,8 @@
             </div>
         </div>
     </div>
+
+    <!-- Image upload modal -->
 
     <div class="Modals">
 
@@ -189,6 +206,7 @@
             </div>
         </div>
 
+        <!-- Room delete Modal -->
 
         <form action="{{ route('delete.room', $rooms->id) }}" method="POST">
             @csrf
@@ -213,6 +231,8 @@
                 </div>
             </div>
         </form>
+
+        <!-- Room hide Modal -->
 
         <form action="{{ route('hide.room', $rooms->id) }}" method="POST">
             @csrf
@@ -241,6 +261,8 @@
                 </div>
             </div>
         </form>
+
+        <!-- Room edit modal -->
 
         <div class="modal fade" id="editform" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">

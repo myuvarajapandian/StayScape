@@ -3,6 +3,8 @@
 @section('title', 'My Rooms')
 @include('includes.usernav')
 
+    <!-- Customer Booked Rooms view -->
+
 <div class="container">
     <div class="row">
         <div class="col-md-12 p-1" style="background-color: #F8F9FA;">
@@ -29,6 +31,8 @@
             @endif
         </div>
     </div>
+
+    <!-- Customer Rooms -->
 
     <div class="container">
         <div class="col-md-12">
@@ -68,8 +72,10 @@
                     </div>
                 </div>
                 @endforeach
-
             </div>
+
+            <!-- This content will display while no rooms available -->
+
             @if (!$roomsDisplayed)
             <div class="container" style="height: 75vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
                 <div class="col-md-12 text-center">
@@ -79,7 +85,5 @@
             @endif
         </div>
     </div>
-
 </div>
-
 @endsection

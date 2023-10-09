@@ -3,6 +3,8 @@
 @section('title', 'Welcome')
 @include('includes.header')
 
+    <!-- Owner index page -->
+
 <div class="continer">
     <div class="mt-2">
         @if($errors->any())
@@ -20,6 +22,9 @@
         <div class="alert alert-success">{{session('success')}}</div>
         @endif
     </div>
+
+    <!-- Owner content -->
+
     <main class="container mt-4">
         <div class="mb-4">
             <h4 class="mb-3">Hello {{ Auth::user()->name }}!</h4>

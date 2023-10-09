@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\bookedRooms;
 use App\Models\Rooms;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+    // To control all Customer based functions
+
 class UserManager extends Controller
 {
+
+    // Function to redirect to their page based on their role
+
     public function users()
     {
         if (Auth::user()->user_role === 'customer') {
@@ -30,7 +34,8 @@ class UserManager extends Controller
         }
     }
 
-
+    // Profile function for both Roles
+    
     public function profile()
     {
         if (Auth::user()->user_role === 'customer') {
@@ -42,6 +47,8 @@ class UserManager extends Controller
         }
     }
 
+    // Edit Profile function for both Roles
+    
     public function editprofile(Request $request)
     {
         $user = Auth::user();
@@ -50,17 +57,19 @@ class UserManager extends Controller
             'phone' => 'required|max:10',
             'about' => 'required',
         ]);
-
+        
         $user->update([
             'name' => $request->input('name'),
             'phone' => $request->input('phone'),
             'about' => $request->input('about'),
         ]);
-
+        
         $redirectRoute = ($user->user_role === 'customer') ? 'customer.profile' : 'owner.profile';
-
+        
         return redirect()->route($redirectRoute)->with('success', 'Details updated successfully');
     }
+    
+    // Remove Account function for both Roles
 
     public function removeAccount()
     {

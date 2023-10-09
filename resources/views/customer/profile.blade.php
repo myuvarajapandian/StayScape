@@ -2,6 +2,9 @@
 @section('content')
 @section('title', 'Profile')
 @include('includes.usernav')
+
+    <!-- Customer Profile page -->
+
 <div class="container mb-2">
     <div class="row">
         <div class="col-md-12 p-1" style="background-color: #F8F9FA;">
@@ -29,8 +32,10 @@
         </div>
     </div>
 
+    <!-- Profile Card -->
+
     <div class="container mt-5">
-        <div class="row justify-content-center"> <!-- Center the card horizontally -->
+        <div class="row justify-content-center"> 
             <div class="col-md-8">
                 <div class="card shadow">
                     <div class="card-body">
@@ -56,6 +61,7 @@
         </div>
     </div>
 
+    <!-- Edit profile Modal -->
 
     <div class="modal fade" id="editProfileModal" tabindex="-1" role="dialog" aria-labelledby="editProfileModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -88,6 +94,8 @@
             </div>
         </div>
     </div>
+
+    <!-- Remove account Modal -->
 
     <div class="modal fade" id="removeAccountModal" tabindex="-1" role="dialog" aria-labelledby="removeAccountModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">

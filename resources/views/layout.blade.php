@@ -1,3 +1,6 @@
+
+    <!-- layout page (it Connects through all pages) -->
+
 <!doctype html>
 <html lang="en">
 
@@ -18,42 +21,69 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   <script>
+
+    // Js function for location search 
+
+    // Wait for the DOM to be fully loaded before executing the JavaScript
     document.addEventListener("DOMContentLoaded", function() {
+      // Get references to various DOM elements using their IDs or classes
       const locationSearchForm = document.getElementById("location-search-form");
       const locationInput = document.getElementById("location-input");
       const roomCards = document.querySelectorAll(".room-card");
       const locationLinks = document.querySelectorAll(".location-link");
 
+      // Add an event listener to the location search form for the "submit" event
       locationSearchForm.addEventListener("submit", function(e) {
+        // Prevent the default form submission behavior, which would reload the page
         e.preventDefault();
+
+        // Get the value entered in the location input field, trim spaces, and convert to lowercase
         const searchValue = locationInput.value.trim().toLowerCase();
 
+        // Iterate through each room card
         roomCards.forEach(function(card) {
+          // Get the data-location attribute of the card, trim spaces, and convert to lowercase
           const cardLocation = card.getAttribute("data-location").toLowerCase();
+
+          // Check if the card's location includes the search value
           if (cardLocation.includes(searchValue)) {
+            // If it includes the search value, display the card
             card.style.display = "block";
           } else {
+            // If it doesn't include the search value, hide the card
             card.style.display = "none";
           }
         });
       });
 
+      // Add an event listener to each location link
       locationLinks.forEach(function(link) {
         link.addEventListener("click", function(e) {
+          // Prevent the default link navigation behavior
           e.preventDefault();
+
+          // Get the text content of the clicked link, trim spaces, and convert to lowercase
           const linkText = link.textContent.trim().toLowerCase();
 
+          // Iterate through each room card
           roomCards.forEach(function(card) {
+            // Get the data-location attribute of the card, trim spaces, and convert to lowercase
             const cardLocation = card.getAttribute("data-location").toLowerCase();
+
+            // Check if the card's location includes the text from the clicked link
             if (cardLocation.includes(linkText)) {
+              // If it includes the text, display the card
               card.style.display = "block";
             } else {
+              // If it doesn't include the text, hide the card
               card.style.display = "none";
             }
           });
         });
       });
     });
+
+    // Js function for rent calculation
 
     document.addEventListener("DOMContentLoaded", function() {
       const checkInInput = document.getElementById("check-in");
@@ -82,7 +112,7 @@
 
       checkInInput.addEventListener('change', calculateRentAmount);
       checkOutInput.addEventListener('change', calculateRentAmount);
-    }); 
+    });
   </script>
 
 </body>

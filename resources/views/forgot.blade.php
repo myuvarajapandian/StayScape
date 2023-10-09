@@ -1,6 +1,9 @@
 @extends('layout')
 @section('content')
 @section('title', 'Forgot Password')
+
+    <!-- Forgot password page -->
+
 <div class="row justify-content-center align-items-center min-vh-100">
     <div class="col-md-6">
         <div class="card shadow-lg p-5">

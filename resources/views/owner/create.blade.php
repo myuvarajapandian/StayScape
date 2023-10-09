@@ -2,6 +2,9 @@
 @section('content')
 @section('title', 'Create')
 @include('includes.header')
+
+<!-- Owner Create Room page -->
+
 <div class="continer">
     <div class="continer w-50 ms-auto me-auto mt-4 ">
         <div class="mt-3">
@@ -22,6 +25,9 @@
             @endif
         </div>
     </div>
+
+    <!-- Room creation form -->
+
     <div class=" shadow-sm p-4 mt-3">
         <div class="card-body">
             <h4 class="card-title text-left mb-5 mt-3"> <i class="fa-solid fa-door-open"></i> Create Room</h4>
@@ -157,6 +163,5 @@
             </form>
         </div>
     </div>
-</div>
 </div>
 @endsection

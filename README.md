@@ -1,4 +1,4 @@
-# StayScape - Your Project Name
+# StayScape - A house Room Booking application
 
 Welcome to StayScape, an innovative platform for booking and managing accommodations, designed to simplify the way you find and reserve your ideal stay.
 
@@ -57,8 +57,6 @@ Before running StayScape, make sure you have the following installed:
 - [PHP](https://www.php.net/)
 - [Composer](https://getcomposer.org/)
 - [MySQL](https://www.mysql.com/)
-### Deployment
-Instructions are provided to how to deploy your application to a production server or platform. Include any necessary configurations or environment variables below.
 
 ### Installation
 
@@ -127,6 +125,8 @@ Instructions are provided to how to deploy your application to a production serv
 These steps are essential to set up and run StayScape on your local environment for development and testing. Make sure to configure your .env file with appropriate values for your database and other settings.
 
 ## Usage
+### Deployment
+Instructions are provided to how to deploy your application to a production server or platform. Include any necessary configurations or environment variables below.
 
 ### Travelers: 
 

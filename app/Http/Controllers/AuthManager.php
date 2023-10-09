@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+
+
+    // To control all login and signup functions
 
 class AuthManager extends Controller
 {
@@ -19,6 +21,8 @@ class AuthManager extends Controller
     {
         return view('register');
     }
+
+    // login function
 
     public function loginPost(Request $request)
     {
@@ -36,6 +40,8 @@ class AuthManager extends Controller
 
         return redirect()->back()->withErrors(['email' => 'Invalid login credentials']);
     }
+
+    // Signup function
 
     function registerPost(Request $request)
     {
@@ -64,6 +70,8 @@ class AuthManager extends Controller
         return view('forgot');
     }
 
+    // Forgot password function
+
     public function reset(Request $request)
     {
         $request->validate([
@@ -84,6 +92,8 @@ class AuthManager extends Controller
 
         return redirect(route('login'))->with('success', 'Password Reset Success');
     }
+
+    // logout function
 
     public function logout()
     {

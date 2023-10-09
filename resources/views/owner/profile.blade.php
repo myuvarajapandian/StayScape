@@ -2,6 +2,9 @@
 @section('content')
 @section('title', 'Owner Profile')
 @include('includes.header')
+
+    <!-- Owner profile page -->
+
 <div class="container mb-2">
     <div class="row">
         <div class="col-md-12 p-1" style="background-color: #F8F9FA;">
@@ -28,6 +31,8 @@
             @endif
         </div>
     </div>
+
+    <!-- Profile content -->
 
     <div class="container mt-5">
         <div class="row justify-content-center"> <!-- Center the card horizontally -->
@@ -56,7 +61,7 @@
         </div>
     </div>
 
-
+    <!-- Edit profile modal -->
 
     <div class="modal fade" id="editProfileModal" tabindex="-1" role="dialog" aria-labelledby="editProfileModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -89,6 +94,8 @@
             </div>
         </div>
     </div>
+
+    <!-- Remove account modal  -->
 
     <div class="modal fade" id="removeAccountModal" tabindex="-1" role="dialog" aria-labelledby="removeAccountModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">

@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Rooms;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\Rules\Unique;
+
+    // To control all Room creation functions
 
 class CreateRoomManager extends Controller
 {

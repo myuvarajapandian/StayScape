@@ -2,6 +2,9 @@
 @section('content')
 @section('title', 'Welcome!')
 @include('includes.usernav')
+
+    <!-- Customer Welcom Page -->
+
 <div class="container">
     <div class="continer w-50 ms-auto me-auto mt-4 ">
         <div class="mt-3">
@@ -27,6 +30,9 @@
         <h4 class="mb-3">Hello {{ Auth::user()->name }}!</h4>
         <h3>Welcome to StayScape</h3>
     </div>
+
+    <!-- Location search -->
+
     <div class="continer w-50">
         <form action="#" method="post" class="d-flex" role="search" id="location-search-form">
             @csrf
@@ -34,6 +40,8 @@
             <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
     </div>
+
+    <!-- Available Rooms -->
 
     <div class="container">
         <div class="col-md-12">
@@ -80,6 +88,9 @@
                 @endif
                 @endforeach
             </div>
+
+            <!-- This content will display while no rooms available -->
+
             @if (!$roomsDisplayed)
             <div class="container" style="height: 75vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
                 <div class="col-md-12 text-center">

@@ -8,8 +8,13 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
+    // To control all RoomManagement functions
+
 class RoomManager extends Controller
 {
+
+    // View room by room id function
+    
     function roomview($room_id)
     {
         $rooms = Rooms::find($room_id);
@@ -19,14 +24,18 @@ class RoomManager extends Controller
         return view('customer.room', compact('rooms', 'owner', 'bookings'));
     }
     
+    // Edit room by room id function
+    
     function editroom($room_id)
     {
         $rooms = Rooms::find($room_id);
         $owner = User::where('email', $rooms->email)->first();
         $bookings = bookedRooms::where('roomid', $room_id)->get();
-
+        
         return view('owner.editroom', compact('rooms', 'owner', 'bookings'));
     }
+    
+    // Upadte room by room id function
 
     public function roomUpdate(Request $request, $room_id)
     {
@@ -66,6 +75,8 @@ class RoomManager extends Controller
 
         return redirect()->route('edit.room', $room_id)->with('success', 'Room updated successfully');
     }
+
+    // Upadte room images by room id function
     
     public function imgUpdate(Request $request, $room_id){
         $request->validate([
@@ -101,6 +112,8 @@ class RoomManager extends Controller
         ]);
         return redirect()->route('edit.room', $room_id)->with('success', 'Images updated successfully');
     }
+
+    // Delete room by room id function
     
     public function deleteRoom($room_id)
     {
@@ -109,6 +122,8 @@ class RoomManager extends Controller
 
         return redirect(route('owner.index'))->with('success', 'Room deleted successfully.');
     }
+
+    // Hide room by room id function
 
     public function roomHide($room_id)
     {

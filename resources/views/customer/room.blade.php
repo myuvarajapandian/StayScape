@@ -2,6 +2,9 @@
 @section('content')
 @section('title', 'Room')
 @include('includes.usernav')
+
+<!-- Customer Room view and booking page -->
+
 <div class="container mb-2">
     <div class="row">
         <div class="col-md-12 p-1" style="background-color: #F8F9FA;">
@@ -27,6 +30,8 @@
             @endif
         </div>
     </div>
+
+    <!-- Room view Content -->
 
     <div class="row">
         <div class="col-lg-7">
@@ -74,6 +79,8 @@
             </div>
         </div>
 
+        <!-- Carousel image view -->
+
         <div class="col-lg-5">
             <div class="card shadow">
                 <div class="card-body">
@@ -113,6 +120,8 @@
             </div>
         </div>
     </div>
+
+    <!-- Bookings Modal -->
 
     <div class="modal fade" id="roomModal{{ $rooms->id }}" tabindex="-1" aria-labelledby="roomModalLabel{{ $rooms->id }}" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -171,6 +180,8 @@
         </div>
     </div>
 </div>
+
+    <!-- Booking details modal -->
 
 <div class="modal fade" id="bookingDetailsModal" tabindex="-1" aria-labelledby="bookingDetailsModalLabel" aria-hidden="true">
     <div class="modal-dialog">

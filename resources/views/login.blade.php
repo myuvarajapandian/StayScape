@@ -1,6 +1,9 @@
 @extends('layout')
 @section('content')
 @section('title', 'login')
+
+    <!-- Login page -->
+
 <div class="row justify-content-center align-items-center min-vh-100">
     <div class="col-md-6">
         <div class="card shadow-lg p-5">

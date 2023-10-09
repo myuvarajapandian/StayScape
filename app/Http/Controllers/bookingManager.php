@@ -4,13 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\bookedRooms;
 use App\Models\Rooms;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Carbon;
 
+    // To control all Bookings functions
+
 class bookingManager extends Controller
 {
+
+    // Booking function
+
     public function bookroom(Request $request, $room_id)
     {
         $room = Rooms::find($room_id);
@@ -65,6 +69,8 @@ class bookingManager extends Controller
         return redirect(route('view.room', $room->id))->with('success', 'Room booked successfully');
     }
 
+    // Myrooms function to rooms booked by customer
+
     public function myrooms()
     {
 
@@ -81,7 +87,7 @@ class bookingManager extends Controller
         return view('customer.myrooms', compact('rooms', 'roomImages'));
     }
 
-
+    // customer room checkout function
 
     public function checkout($booking_id)
     {
