@@ -1,5 +1,4 @@
-
-    <!-- layout page (it Connects through all pages) -->
+<!-- layout page (it Connects through all pages) -->
 
 <!doctype html>
 <html lang="en">
@@ -21,7 +20,6 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   <script>
-
     // Js function for location search 
 
     // Wait for the DOM to be fully loaded before executing the JavaScript
@@ -112,6 +110,19 @@
 
       checkInInput.addEventListener('change', calculateRentAmount);
       checkOutInput.addEventListener('change', calculateRentAmount);
+    });
+
+
+    // Get today's date in the format "YYYY-MM-DD"
+    const today = new Date().toISOString().split('T')[0];
+
+    // Set the min attribute for the Check-In input to today
+    document.getElementById('check-in').setAttribute('min', today);
+
+    // Add an event listener to the Check-In input to update the min attribute of the Check-Out input
+    document.getElementById('check-in').addEventListener('change', function() {
+      const checkInDate = this.value;
+      document.getElementById('check-out').setAttribute('min', checkInDate);
     });
   </script>
 

@@ -87,7 +87,7 @@ class UserManager extends Controller
                     return redirect()->route('owner.profile')->with('error', 'Cannot delete account. There are active bookings associated with your rooms.');
                 }
 
-                bookedRooms::where('roomid', $room->id)->delete();
+                // bookedRooms::where('roomid', $room->id)->delete();
                 $room->delete();
             }
         }

@@ -10,26 +10,29 @@ use Symfony\Component\HttpFoundation\Response;
 
 class RedirectIfAuthenticated
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
-     */
     public function handle(Request $request, Closure $next, string ...$guards): Response
     {
+        // If no specific guards are provided, set it to [null]
         $guards = empty($guards) ? [null] : $guards;
 
         foreach ($guards as $guard) {
+            // Check if the user is authenticated for the given guard
             if (Auth::guard($guard)->check()) {
+                // If the user is authenticated, get the authenticated user
                 $user = Auth::user();
-                if($user->user_role === 'customer') {
+
+                // Check the user's role
+                if ($user->user_role === 'customer') {
+                    // If the user role is 'customer', redirect to the '/Customer' route
                     return redirect('/Customer');
                 } else {
+                    // If the user role is not 'customer', redirect to the '/Owner' route
                     return redirect('/Owner');
                 }
             }
         }
 
+        // If the user is not authenticated for any guard, continue with the request
         return $next($request);
     }
 }

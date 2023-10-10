@@ -77,14 +77,7 @@ class bookingManager extends Controller
         $user = Auth::user();
         $rooms = bookedRooms::where('email', $user->email)->get();
 
-        $roomImages = [];
-        // Loop through the booked rooms and fetch their images
-        foreach ($rooms as $bookedRoom) {
-            $room = Rooms::find($bookedRoom->roomid);
-            $roomImages[$bookedRoom->roomid] = $room->images;
-        }
-
-        return view('customer.myrooms', compact('rooms', 'roomImages'));
+        return view('customer.myrooms', compact('rooms'));
     }
 
     // customer room checkout function

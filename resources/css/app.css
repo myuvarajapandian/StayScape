@@ -8,3 +8,14 @@
     width: 100%;
     height: auto;
 }
+
+.welcome-container {
+    padding: 100px 0;
+    text-align: center;
+}
+.welcome-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}

@@ -21,9 +21,11 @@ use GuzzleHttp\Promise\Create;
 */
 
 
-
 Route::middleware(['web', 'guest'])->group(function () {
-    Route::get('/', [AuthManager::class, 'login'])->name('login')->middleware('redirectIfAuthenticated');
+    Route::get('/', function () {
+        return view('welcome');
+    })->name('home');
+    Route::get('/Login', [AuthManager::class, 'login'])->name('login')->middleware('redirectIfAuthenticated');
     Route::post('/Login', [AuthManager::class, 'loginPost'])->name('login.post');
     Route::get('/Signup', [AuthManager::class, 'register'])->name('register')->middleware('redirectIfAuthenticated');
     Route::post('/Signup', [AuthManager::class, 'registerPost'])->name('register.post');

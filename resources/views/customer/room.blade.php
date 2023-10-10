@@ -64,7 +64,7 @@
                         <p class="mb-2"><strong>Maximum Stay:</strong> {{ $rooms->max_stay }} days</p>
                         <div class="d-flex justify-content-between">
                             <h3 class="mt-4">
-                                <strong style="color: #EE2A24;">Rs. {{ $rooms->rent }}<span style="color: black;"> / Nigth </span></strong>
+                                <strong style="color: #EE2A24;">Rs. {{ $rooms->rent }}<span style="color: black;"> / Night </span></strong>
                             </h3>
                             <button class="btn btn-primary btn-lg align-content-end mb-3" data-bs-toggle="modal" data-bs-target="#roomModal{{ $rooms->id }}">Book Now</button>
                         </div>

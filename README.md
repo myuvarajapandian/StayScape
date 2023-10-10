@@ -106,7 +106,7 @@ Before running StayScape, make sure you have the following installed:
     ```shell
     php artisan migrate
 
-8. Link storage
+8. Link storage:
 
      Execute "php artisan storage:link" to create a symbolic link from the "public/storage" directory to the "storage/app/public" directory. This allows for the storage of user-uploaded files.
 
@@ -115,12 +115,12 @@ Before running StayScape, make sure you have the following installed:
 
 9. Start the development server:
 
-    Launch the development server by running "php artisan serve". This starts a local web server, and you can access StayScape by visiting http://127.0.0.1 in your web browser.
+    Launch the development server by running "php artisan serve". This starts a local web server, and you can access StayScape by visiting http://127.0.0.1:8000 in your web browser.
 
     ```shell
     php artisan serve
 
-10. Visit http://127.0.0.1 in your web browser to access StayScape.
+10. Visit http://127.0.0.1:8000 in your web browser to access StayScape.
 
 These steps are essential to set up and run StayScape on your local environment for development and testing. Make sure to configure your .env file with appropriate values for your database and other settings.
 
