@@ -40,7 +40,7 @@
                 <div class="card shadow">
                     <div class="card-body">
                         <div class="text-center">
-                            <img src="{{ Storage::url('public/photos/user-png.png') }}" alt="Default User Image" class="img-fluid rounded-circle profile-image" style="width: 100px;">
+                            <img src="{{ Storage::url('public/photos/   user-png.png') }}" alt="Default User Image" class="img-fluid rounded-circle profile-image" style="width: 100px;">
                             <h1 class="profile-name mt-3">{{ $user->name }}</h1>
                             <p class="profile-email"><i class="fas fa-envelope"></i> {{ $user->email }}</p>
                             <p class="profile-phone"><i class="fas fa-phone"></i> +91 {{ $user->phone }}</p>
